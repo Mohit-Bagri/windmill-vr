@@ -252,12 +252,6 @@ private IEnumerator FadeTextAlpha(float startAlpha, float endAlpha)
 
 ---
 
-## Demo
-
-*Video demo coming soon*
-
----
-
 <div align="center">
 
 Made in 🇮🇳 with ❤️ by [MOHIT BAGRI](https://mohitbagri-portfolio.vercel.app)
