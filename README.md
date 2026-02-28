@@ -1,46 +1,267 @@
-# Unity Game Development Tutorials
+<div align="center">
 
-## 1. Windmill – Creating a Complex Object Using Unity Primitives
-The cource codes for this tutorial can be found at https://github.com/shamim-akhtar/gamdev-unity/tree/windmill.
+# 🌬️ Windmill Breath VR
 
+### VR-Guided Breathing Experience
 
-![Unity](https://img.shields.io/badge/Unity-2022.3.24f1-green?style=for-the-badge) ![C#](https://img.shields.io/badge/%20-C%23-blue?style=for-the-badge) ![Level](https://img.shields.io/badge/Beginner-8A2BE2?style=for-the-badge)
-[![Featured Image](https://github.com/shamim-akhtar/gamdev-unity/blob/main/Windmill.png)](https://faramira.com/windmill-creating-a-complex-object-using-unity-primitives/)
-[Read the tutorial](https://faramira.com/windmill-creating-a-complex-object-using-unity-primitives/)
+**Find your calm. Breathe with the windmill.**
 
-In this tutorial, we will explore how we can create and manipulate primitive shapes in Unity to create a more complex model.
+<p align="center">
+  <img src="https://img.shields.io/badge/Unity-2022.3-black?style=for-the-badge&logo=unity" alt="Unity">
+  <img src="https://img.shields.io/badge/C%23-Game%20Logic-239120?style=for-the-badge&logo=csharp" alt="C#">
+  <img src="https://img.shields.io/badge/VR-Meta%20Quest-blue?style=for-the-badge&logo=meta" alt="Meta Quest">
+  <img src="https://img.shields.io/badge/Animation-Coroutines-purple?style=for-the-badge" alt="Coroutines">
+</p>
 
-We will use Unity’s built-in primitive shapes to construct something more intricate: a complex model. What exactly do we mean by a “complex model”? 
+</div>
 
-Essentially, it is a brand-new 3D object obtained by piecing together various primitive shapes like cubes, cylinders, spheres, and more. Rather than starting from scratch with a single detailed model, we are leveraging Unity’s primitives to build something unique, layer by layer.
+---
 
-Picture it like assembling a puzzle. Instead of having all the pieces neatly cut into a single shape, we are working with a diverse set of building blocks, each with its own properties and dimensions. By combining these primitives strategically, we can create complex structures that wouldn’t be feasible to construct manually.
+## Table of Contents
 
-We do so by applying the model-to-world transformation to these individual primitives. This transformation allows us to manipulate the position, the rotation, and the scale of each primitive, effectively placing them within our scene and moulding them into the desired form.
+- [About](#about)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Project Structure](#project-structure)
+- [Installation](#installation)
+- [How It Works](#how-it-works)
+- [Customization](#customization)
+- [Key Scripts](#key-scripts)
 
-Through this exercise, you will gain hands-on experience with Unity’s modelling capabilities, honing your skills in applying transformations to create complex 3D models.
+---
 
-### View the tutorial on YouTube.
+## About
 
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=o3l13L-Hn6Y
-" target="_blank"><img src="http://img.youtube.com/vi/o3l13L-Hn6Y/0.jpg" 
-alt="Video" border="10" /></a>
+**Windmill Breath VR** is a mindfulness and meditation experience built for VR. The project features an animated 3D windmill that synchronizes with guided breathing exercises, creating a calming visual aid for breath control practice.
 
-## 2. 8-Puzzle Problem Using A* in C# and Unity
-The source code for this tutorial is in the branch https://github.com/shamim-akhtar/gamdev-unity/tree/8-puzzle.
+I built this for a client who needed a VR-based breathing exercise application. The windmill spins progressively faster during exhalation and gradually slows during relaxation phases, providing intuitive visual feedback that helps users maintain proper breathing rhythm.
 
-![Unity](https://img.shields.io/badge/Unity-2022.3.24f1-green?style=for-the-badge) ![C#](https://img.shields.io/badge/%20-C%23-blue?style=for-the-badge) ![Level](https://img.shields.io/badge/Intermediate-8A2BE2?style=for-the-badge)
-[![Featured Image](https://github.com/shamim-akhtar/gamdev-unity/blob/8-puzzle/Thumbnail.png)](https://faramira.com/8-puzzle-problem-using-astar-in-csharp-and-unity/)
-[Read the tutorial](https://faramira.com/8-puzzle-problem-using-astar-in-csharp-and-unity/)
+---
 
-In this tutorial, we will build the 8-Puzzle game and integrate A-Star pathfinding to solve it. This tutorial is divided into three sections. 
-First, we will focus on implementing the 8 puzzle game functionality, emphasising the programming aspects over design elements. 
-Next, we will delve into implementing our pathfinding algorithms, including A-Star, Dijkstra's, and Greedy Best-First Search.
-Finally, we will apply these pathfinding algorithms to solve various configurations of the 8-Puzzle.
+## Features
 
+| Feature | Description |
+|---------|-------------|
+| **🧘 Guided Breathing** | 4-phase breathing cycle: Inhale → Hold → Exhale → Relax |
+| **🌪️ Animated Windmill** | Smooth rotation synchronized with breathing phases |
+| **⏱️ Countdown Timer** | Visual countdown for each phase |
+| **🔢 Round Tracking** | Track progress through multiple breathing rounds |
+| **✨ Smooth UI** | Fade in/out text transitions for immersive experience |
+| **⚙️ Customizable** | Adjustable durations for each breathing phase |
+| **🎮 VR Ready** | Built for Meta Quest headsets |
 
-### View the tutorial on YouTube.
+---
 
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=Ubl3lwYo_Ik
-" target="_blank"><img src="http://img.youtube.com/vi/Ubl3lwYo_Ik/0.jpg" 
-alt="Video" border="10" /></a>
+## Tech Stack
+
+| Component | Technology |
+|-----------|------------|
+| **Game Engine** | Unity 2022.3 LTS |
+| **Programming** | C# |
+| **VR Platform** | Meta Quest 2/3/Pro |
+| **UI Framework** | Unity UI (uGUI) |
+| **Animations** | Coroutine-based state machine |
+| **3D Models** | Unity Primitives + Custom Materials |
+
+---
+
+## Project Structure
+
+```
+ProjectWindmill/
+├── Assets/
+│   ├── Scripts/
+│   │   ├── BreathControl.cs      # Main breathing cycle controller
+│   │   ├── Windmill.cs           # Windmill rotation logic
+│   │   └── TextFader.cs          # UI text fade animations
+│   ├── Materials/
+│   │   └── WindmillTiles03_4K_BaseColor.mat
+│   ├── Ground textures pack/     # Environment textures
+│   └── Scenes/
+│       └── SampleScene.unity
+├── Packages/
+│   └── manifest.json
+└── ProjectSettings/
+```
+
+---
+
+## Installation
+
+### Prerequisites
+
+- Unity 2022.3 LTS or later
+- Meta Quest 2/3/Pro or compatible VR headset
+- Oculus Desktop App
+
+### Quick Start
+
+```bash
+# Clone the repository
+git clone https://github.com/Mohit-Bagri/windmill-vr.git
+cd windmill-vr/ProjectWindmill
+
+# Open in Unity
+# 1. Open Unity Hub
+# 2. Click "Add Project"
+# 3. Select the ProjectWindmill folder
+```
+
+### Build for VR
+
+1. **Switch Platform:**
+   - File → Build Settings → Android
+   - Click "Switch Platform"
+
+2. **XR Settings:**
+   - Edit → Project Settings → XR Plug-in Management
+   - Enable Oculus
+
+3. **Build & Run:**
+   - Connect Meta Quest via USB
+   - Build Settings → Build and Run
+
+---
+
+## How It Works
+
+The breathing exercise follows a structured 4-phase cycle:
+
+### Breathing Phases
+
+| Phase | Duration | Windmill Behavior |
+|-------|----------|-------------------|
+| **🫁 Inhale** | 3 seconds | Static - Prepare phase |
+| **⏸️ Hold** | 2 seconds | Static - Breath retention |
+| **💨 Exhale** | 4 seconds | **Accelerates** from 0 to max speed |
+| **😌 Relax** | 2 seconds | **Decelerates** back to stop |
+
+### Session Flow
+
+1. **Get Ready** - 5-second countdown before session starts
+2. **Breathing Rounds** - Complete customizable number of rounds (default: 5)
+3. **Session Complete** - Final message displayed
+
+### Visual Feedback
+
+The windmill rotation speed directly corresponds to the exhalation phase:
+- **Inhale/Hold** - Windmill is stationary
+- **Exhale** - Windmill gradually speeds up (acceleration over 2s)
+- **Relax** - Windmill smoothly slows down (deceleration over 2s)
+
+This creates a calming visual metaphor: breathing out "powers" the windmill, encouraging complete and controlled exhalation.
+
+---
+
+## Customization
+
+All breathing parameters can be adjusted via the Unity Inspector:
+
+| Parameter | Default | Description |
+|-----------|---------|-------------|
+| `totalRounds` | 5 | Number of breathing cycles |
+| `startingCountdown` | 5s | Preparation countdown before start |
+| `inhaleDuration` | 3s | Duration of inhale phase |
+| `holdDuration` | 2s | Duration of breath hold |
+| `exhaleDuration` | 4s | Duration of exhale phase |
+| `relaxDuration` | 2s | Duration of relaxation phase |
+
+**Windmill Settings:**
+| Parameter | Default | Description |
+|-----------|---------|-------------|
+| `maxSpeed` | 200 | Maximum rotation speed during exhale |
+| `accelerationTime` | 2s | Time to reach max speed |
+
+---
+
+## Key Scripts
+
+### [`BreathControl.cs`](ProjectWindmill/Assets/Scripts/BreathControl.cs)
+
+The main controller that manages the breathing exercise flow using Unity coroutines for smooth state transitions.
+
+```csharp
+// Core breathing cycle coroutine
+IEnumerator BreathCycle()
+{
+    while (currentRound < totalRounds)
+    {
+        currentRound++;
+        
+        // Inhale Phase
+        yield return StartCoroutine(UpdateBreathPhase("Inhale", inhaleDuration));
+        
+        // Hold Phase  
+        yield return StartCoroutine(UpdateBreathPhase("Hold", holdDuration));
+        
+        // Exhale Phase - Start windmill
+        windmill.StartWindmill();
+        yield return StartCoroutine(UpdateBreathPhase("Exhale", exhaleDuration));
+        
+        // Stop windmill gradually
+        windmill.StopWindmill();
+        
+        // Relax Phase
+        yield return StartCoroutine(UpdateBreathPhase("Relax", relaxDuration));
+    }
+}
+```
+
+### [`Windmill.cs`](ProjectWindmill/Assets/Scripts/Windmill.cs)
+
+Handles smooth rotation with acceleration and deceleration curves.
+
+```csharp
+void Update()
+{
+    if (isExhaling)
+    {
+        // Gradually increase speed
+        if (currentSpeed < maxSpeed)
+            currentSpeed += (maxSpeed / accelerationTime) * Time.deltaTime;
+    }
+    else
+    {
+        // Gradually slow down
+        if (currentSpeed > 0)
+            currentSpeed -= (maxSpeed / accelerationTime) * Time.deltaTime;
+    }
+    
+    // Apply rotation
+    rotator.Rotate(Vector3.forward, currentSpeed * Time.deltaTime);
+}
+```
+
+### [`TextFader.cs`](ProjectWindmill/Assets/Scripts/TextFader.cs)
+
+Manages smooth UI text fade transitions using alpha interpolation.
+
+```csharp
+private IEnumerator FadeTextAlpha(float startAlpha, float endAlpha)
+{
+    float elapsedTime = 0f;
+    while (elapsedTime < fadeDuration)
+    {
+        elapsedTime += Time.deltaTime;
+        float newAlpha = Mathf.Lerp(startAlpha, endAlpha, elapsedTime / fadeDuration);
+        breathInstruction.canvasRenderer.SetAlpha(newAlpha);
+        yield return null;
+    }
+}
+```
+
+---
+
+## Demo
+
+*Video demo coming soon*
+
+---
+
+<div align="center">
+
+Made in 🇮🇳 with ❤️ by [MOHIT BAGRI](https://mohitbagri-portfolio.vercel.app)
+
+⭐ **Star this repo if you found it helpful!** ⭐
+
+</div>
